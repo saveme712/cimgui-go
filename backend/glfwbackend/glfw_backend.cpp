@@ -89,8 +89,8 @@ GLFWwindow *igCreateGLFWWindow(const char *title, int width, int height,
   io->ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard; // Enable Keyboard Controls
   // io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;      // Enable Gamepad
   // Controls
-  io->ConfigFlags |= ImGuiConfigFlags_DockingEnable;   // Enable Docking
-  io->ConfigFlags |= ImGuiConfigFlags_ViewportsEnable; // Enable Multi-Viewport
+  //io->ConfigFlags |= ImGuiConfigFlags_DockingEnable;   // Enable Docking
+  //io->ConfigFlags |= ImGuiConfigFlags_ViewportsEnable; // Enable Multi-Viewport
                                                        // / Platform Windows
   // io.ConfigViewportsNoAutoMerge = true;
   // io.ConfigViewportsNoTaskBarIcon = true;
@@ -115,7 +115,6 @@ GLFWwindow *igCreateGLFWWindow(const char *title, int width, int height,
 
   // Install extra callback
   glfwSetWindowRefreshCallback(window, glfw_window_refresh_callback);
-  glfwMakeContextCurrent(NULL);
   return window;
 }
 
