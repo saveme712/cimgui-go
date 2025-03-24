@@ -5,9 +5,9 @@ import (
 	"image/color"
 	"unsafe"
 
+	"github.com/hajimehoshi/ebiten/v2"
 	"github.com/saveme712/cimgui-go/backend"
 	"github.com/saveme712/cimgui-go/imgui"
-	"github.com/hajimehoshi/ebiten/v2"
 )
 
 func (b *EbitenBackend) SetAfterCreateContextHook(fn func()) {

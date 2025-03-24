@@ -190,17 +190,23 @@ extern void igGLFWWindow_SetSizeLimits(GLFWwindow *window, int minWidth, int min
 extern void igGLFWWindow_SetCloseCallback(GLFWwindow *window);
 extern void igGLFWWindow_SetKeyCallback(GLFWwindow *window);
 extern void igGLFWWindow_SetSizeCallback(GLFWwindow *window);
+extern GLFWcursorposfun igGLFWWindow_SetCursorPosCallback(GLFWwindow *wnd);
+extern GLFWmousebuttonfun igGLFWWindow_SetMouseButtonCallback(GLFWwindow *wnd);
 extern void igGLFWWindow_SetIcon(GLFWwindow *window, int count, CImage* images);
 extern void igRefresh();
 extern ImTextureID igCreateTexture(unsigned char *pixels, int width, int height);
 extern void igDeleteTexture(ImTextureID id);
 extern void igWindowHint(GLFWWindowFlags hint, int value);
 extern void iggImplGlfw_KeyCallback(GLFWwindow* w, int k,int s,int a,int m);
+extern void iggImplGlfw_InvokeCursorPosCallback(GLFWwindow* w, void* cb, double x, double y);
+extern void iggImplGlfw_InvokeMouseButtonCallback(GLFWwindow* w, void* cb, int a, int b, int c);
 
 extern void dropCallback(int, char **);
 extern void closeCallback(GLFWwindow *window);
 extern void keyCallback(int key, int scancode, int action, int mods);
 extern void sizeCallback(int width, int height);
+extern void cursorPosCallback(double x, double y);
+extern void mouseButtonCallback(int a, int b, int c);
 
 #ifdef __cplusplus
 }

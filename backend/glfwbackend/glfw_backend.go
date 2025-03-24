@@ -206,6 +206,10 @@ type GLFWBackend struct {
 	closeCB              func(pointer unsafe.Pointer)
 	keyCb                backend.KeyCallback
 	sizeCb               backend.SizeChangeCallback
+	oldCursorPosCb       unsafe.Pointer
+	cursorPosCb          backend.CursorPosCallback
+	oldMouseButtonCb     unsafe.Pointer
+	mouseButtonCb        backend.MouseButtonCallback
 	window               uintptr
 }
 
@@ -452,6 +456,22 @@ func (b *GLFWBackend) SetKeyCallback(cbfun backend.KeyCallback) {
 	C.igGLFWWindow_SetKeyCallback(b.handle())
 }
 
+func (b *GLFWBackend) SetCursorPosCallback(cbfun backend.CursorPosCallback) {
+	b.cursorPosCb = func(x, y float64) {
+		C.iggImplGlfw_InvokeCursorPosCallback(b.handle(), b.oldCursorPosCb, C.double(x), C.double(y))
+		cbfun(x, y)
+	}
+	b.oldCursorPosCb = unsafe.Pointer(C.igGLFWWindow_SetCursorPosCallback(b.handle()))
+}
+
+func (b *GLFWBackend) SetMouseButtonCallback(cbfun backend.MouseButtonCallback) {
+	b.mouseButtonCb = func(a, bb, c int) {
+		C.iggImplGlfw_InvokeMouseButtonCallback(b.handle(), b.oldMouseButtonCb, C.int(a), C.int(bb), C.int(c))
+		cbfun(a, bb, c)
+	}
+	b.oldMouseButtonCb = unsafe.Pointer(C.igGLFWWindow_SetMouseButtonCallback(b.handle()))
+}
+
 func (b *GLFWBackend) KeyCallback() backend.KeyCallback {
 	return b.keyCb
 }
@@ -463,6 +483,14 @@ func (b *GLFWBackend) SetSizeChangeCallback(cbfun backend.SizeChangeCallback) {
 
 func (b *GLFWBackend) SizeCallback() backend.SizeChangeCallback {
 	return b.sizeCb
+}
+
+func (b *GLFWBackend) CursorPosCallback() backend.CursorPosCallback {
+	return b.cursorPosCb
+}
+
+func (b *GLFWBackend) MouseButtonCallback() backend.MouseButtonCallback {
+	return b.mouseButtonCb
 }
 
 func (b *GLFWBackend) SetSwapInterval(interval GLFWWindowFlags) error {

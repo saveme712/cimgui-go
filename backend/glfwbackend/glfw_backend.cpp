@@ -271,6 +271,8 @@ void igGLFWWindow_SetShouldClose(GLFWwindow *window, bool value) { glfwSetWindow
 void igGLFWWindow_SetDropCallbackCB(GLFWwindow *wnd) { glfwSetDropCallback(wnd, (GLFWdropfun)dropCallback); }
 void igGLFWWindow_SetKeyCallback(GLFWwindow *wnd) { glfwSetKeyCallback(wnd, (GLFWkeyfun)keyCallback); }
 void igGLFWWindow_SetSizeCallback(GLFWwindow *wnd) { glfwSetWindowSizeCallback(wnd, (GLFWwindowsizefun)sizeCallback); }
+GLFWcursorposfun igGLFWWindow_SetCursorPosCallback(GLFWwindow *wnd) { return glfwSetCursorPosCallback(wnd, (GLFWcursorposfun)cursorPosCallback); }
+GLFWmousebuttonfun igGLFWWindow_SetMouseButtonCallback(GLFWwindow *wnd) { return glfwSetMouseButtonCallback(wnd, (GLFWmousebuttonfun)mouseButtonCallback); }
 
 void igGLFWWindow_SetCloseCallback(GLFWwindow *window) {
   glfwSetWindowCloseCallback(window, (GLFWwindowclosefun)closeCallback);
@@ -300,4 +302,6 @@ void igGLFWWindow_SetIcon(GLFWwindow *window, int count, CImage *images) {
 
 void iggImplGlfw_KeyCallback(GLFWwindow* w, int k,int s,int a,int m) { ImGui_ImplGlfw_KeyCallback(w,k,s,a,m); }
 
+void iggImplGlfw_InvokeCursorPosCallback(GLFWwindow* w, void* cb, double x, double y) { ((GLFWcursorposfun)cb)(w, x, y); }
+void iggImplGlfw_InvokeMouseButtonCallback(GLFWwindow* w, void* cb, int a, int b, int c) { ((GLFWmousebuttonfun)cb)(w, a, b, c); }
 #endif

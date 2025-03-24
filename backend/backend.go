@@ -112,10 +112,30 @@ func sizeCallback(_ unsafe.Pointer, w, h C.int) {
 	}
 }
 
+//export cursorPosCallback
+func cursorPosCallback(_ unsafe.Pointer, x, y C.double) {
+	if currentBackend != nil {
+		if f := currentBackend.CursorPosCallback(); f != nil {
+			f(float64(x), float64(y))
+		}
+	}
+}
+
+//export mouseButtonCallback
+func mouseButtonCallback(_ unsafe.Pointer, a, b, c C.int) {
+	if currentBackend != nil {
+		if f := currentBackend.MouseButtonCallback(); f != nil {
+			f(int(a), int(b), int(c))
+		}
+	}
+}
+
 type (
-	DropCallback       func([]string)
-	KeyCallback        func(key, scanCode, action, mods int)
-	SizeChangeCallback func(w, h int)
+	DropCallback        func([]string)
+	KeyCallback         func(key, scanCode, action, mods int)
+	SizeChangeCallback  func(w, h int)
+	CursorPosCallback   func(x, y float64)
+	MouseButtonCallback func(button, action, mods int)
 )
 
 type WindowCloseCallback func()
@@ -163,6 +183,8 @@ type Backend[BackendFlagsT ~int] interface {
 	SetDropCallback(DropCallback)
 	SetCloseCallback(WindowCloseCallback)
 	SetKeyCallback(KeyCallback)
+	SetCursorPosCallback(CursorPosCallback)
+	SetMouseButtonCallback(MouseButtonCallback)
 	SetSizeChangeCallback(SizeChangeCallback)
 	// SetWindowFlags selected hint to specified value.
 	// ATTENTION: This method is able to set only one flag per call.
@@ -207,6 +229,8 @@ type backendCExpose interface {
 	CloseCallback() func(window unsafe.Pointer)
 	KeyCallback() KeyCallback
 	SizeCallback() SizeChangeCallback
+	CursorPosCallback() CursorPosCallback
+	MouseButtonCallback() MouseButtonCallback
 }
 
 var CExposerError error = errors.New("CreateBackend was unable to extract C API Exposer from your backend. This is an error if you want to use C-related backend.")
