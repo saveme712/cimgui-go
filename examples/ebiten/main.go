@@ -3,10 +3,10 @@ package main
 import (
 	"fmt"
 
-	"github.com/AllenDang/cimgui-go/backend"
-	ebitenbackend "github.com/AllenDang/cimgui-go/backend/ebiten-backend"
-	"github.com/AllenDang/cimgui-go/examples/common"
-	"github.com/AllenDang/cimgui-go/imgui"
+	"github.com/saveme712/cimgui-go/backend"
+	ebitenbackend "github.com/saveme712/cimgui-go/backend/ebiten-backend"
+	"github.com/saveme712/cimgui-go/examples/common"
+	"github.com/saveme712/cimgui-go/imgui"
 )
 
 var currentBackend backend.Backend[ebitenbackend.EbitenBackendFlags]

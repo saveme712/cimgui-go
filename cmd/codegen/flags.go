@@ -14,7 +14,7 @@ type flags struct {
 	RefEnumsJsonPath    string `names:"-re, --ref-enums" usage:"structs_and_enums.json file path for reference package (see README.md)."`
 	RefTypedefsJsonPath string `names:"-rt, --ref-typedefs" usage:"typedefs_dict.json file path for reference package (see README.md)."`
 
-	PresetJsonPath string `names:"-p, --preset" usage:"Preset of custom (manual) generator rules. See go doc github.com/AllenDang/cimgui-go/cmd/codegen.Preset for more details. (in form of json file)"`
+	PresetJsonPath string `names:"-p, --preset" usage:"Preset of custom (manual) generator rules. See go doc github.com/saveme712/cimgui-go/cmd/codegen.Preset for more details. (in form of json file)"`
 
 	// name for refTypedefs (default: imgui)
 	RefPackageName string `names:"-rp, --ref-pkg" usage:"name for refTypedefs package name" default:"imgui"`

@@ -42,7 +42,7 @@ There are several possible solutions:
 - You've too many items calling Allocate without cleaning (more than %d).
   I this is the case, plelase report an issue ane we'll increase pool limit for the type.
 
-Refer: https://github.com/AllenDang/cimgui-go/issues/224
+Refer: https://github.com/saveme712/cimgui-go/issues/224
 `, callback, len(p.pool)))
 }
 
@@ -58,7 +58,7 @@ func (p *Pool[GoCallback, CCallback]) Find(callback CCallback) GoCallback {
 
 This means that you attempt to Find source function of type %T, but the function given as an argument to Find was either
 allocated in a different way (not by this Pool) or was deallocated somehow.
-Refer: https://github.com/AllenDang/cimgui-go/issues/224
+Refer: https://github.com/saveme712/cimgui-go/issues/224
 `, callback))
 }
 

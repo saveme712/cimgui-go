@@ -4,6 +4,6 @@
 package imgui
 
 import (
-	"github.com/AllenDang/cimgui-go/thirdparty/SDL/include"
-	"github.com/AllenDang/cimgui-go/thirdparty/glfw/include/GLFW"
+	"github.com/saveme712/cimgui-go/thirdparty/SDL/include"
+	"github.com/saveme712/cimgui-go/thirdparty/glfw/include/GLFW"
 )

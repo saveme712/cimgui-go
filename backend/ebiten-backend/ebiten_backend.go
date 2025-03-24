@@ -4,8 +4,8 @@ import (
 	"image/color"
 	"runtime"
 
-	"github.com/AllenDang/cimgui-go/backend"
-	"github.com/AllenDang/cimgui-go/imgui"
+	"github.com/saveme712/cimgui-go/backend"
+	"github.com/saveme712/cimgui-go/imgui"
 	"github.com/hajimehoshi/ebiten/v2"
 	"github.com/hajimehoshi/ebiten/v2/inpututil"
 )

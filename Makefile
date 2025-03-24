@@ -139,7 +139,7 @@ define dummy
 	echo -e "//go:build required\n// +build required\n\npackage imgui\n\nimport (\n" > dummy.go
 	for i in `find cwrappers -type f \( -name "*.h" -o -name "*.cpp" \) -exec dirname {} \; | sort -u`; do \
 		cp templates/dummy.go.template $$i/dummy.go; \
-		echo -e "\t_ \"github.com/AllenDang/cimgui-go/$$i\"" >> dummy.go; \
+		echo -e "\t_ \"github.com/saveme712/cimgui-go/$$i\"" >> dummy.go; \
 		done
 	echo ")" >> dummy.go
 endef

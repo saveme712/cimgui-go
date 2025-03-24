@@ -1,7 +1,7 @@
-[![Go Report Card](https://goreportcard.com/badge/github.com/AllenDang/cimgui-go)](https://goreportcard.com/report/github.com/AllenDang/cimgui-go)
-![Build Status](https://github.com/AllenDang/cimgui-go/actions/workflows/test.yaml/badge.svg)
-![Linter Status](https://github.com/AllenDang/cimgui-go/actions/workflows/golangci-lint.yaml/badge.svg)
-[![GoDoc](https://pkg.go.dev/badge/github.com/AllenDang/cimgui-go?utm_source=godoc)](https://pkg.go.dev/mod/github.com/AllenDang/cimgui-go)
+[![Go Report Card](https://goreportcard.com/badge/github.com/saveme712/cimgui-go)](https://goreportcard.com/report/github.com/saveme712/cimgui-go)
+![Build Status](https://github.com/saveme712/cimgui-go/actions/workflows/test.yaml/badge.svg)
+![Linter Status](https://github.com/saveme712/cimgui-go/actions/workflows/golangci-lint.yaml/badge.svg)
+[![GoDoc](https://pkg.go.dev/badge/github.com/saveme712/cimgui-go?utm_source=godoc)](https://pkg.go.dev/mod/github.com/saveme712/cimgui-go)
 [![Mentioned in Awesome Go](https://awesome.re/mentioned-badge.svg)](https://github.com/avelino/awesome-go#gui)
 
 # cimgui-go 
@@ -15,7 +15,7 @@ It works on macOS(arm64/x86), windows(x64), Arch Linux (Gnome/KDE) and Fedora Wo
 ## Setup
 
 There are several dependencies you might need to install on your linux machine.
-Take a look [here](https://github.com/allendang/giu#install)
+Take a look [here](https://github.com/saveme712/giu#install)
 
 ## Current solution is:
 1. Use [cimgui](https://github.com/cimgui/cimgui)'s lua generator to generate function and struct definition as json.
@@ -31,7 +31,7 @@ To see more details about usage of a specific backend, take a look at the [examp
 We support the following backends:
 - [GLFW](./examples/glfw). (GLFW 3.3 + OpenGL)
 - [SDL2](./examples/sdl). (SDL 2 + OpenGL)
-- [Ebitengine](./examples/ebiten) (`import "github.com/AllenDang/cimgui-go/backend/ebitenbackend"`).
+- [Ebitengine](./examples/ebiten) (`import "github.com/saveme712/cimgui-go/backend/ebitenbackend"`).
 
 **Important**: Remember that various solution use different C libraries that can conflict with each other.
 It is recommended to not enable e.g. GLFW and SDL backends at the same time as it may result in linker crash.
@@ -53,7 +53,7 @@ You can also use `imgui.SliceToPtr`.
 
 Please note that at the moment (November 2024) go (1.23) does not support passing annonymous functions to C via CGO.
 We have it workarounded by pre-generating large amount of global functions and a pool.
-For details see https://github.com/AllenDang/cimgui-go/issues/224 .
+For details see https://github.com/saveme712/cimgui-go/issues/224 .
 Just be aware of the limitation that you may run out of pre-generated pool and experience a crash.
 
 ## Function coverage

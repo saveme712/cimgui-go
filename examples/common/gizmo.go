@@ -2,8 +2,8 @@
 package common
 
 import (
-	"github.com/AllenDang/cimgui-go/imgui"
-	"github.com/AllenDang/cimgui-go/imguizmo"
+	"github.com/saveme712/cimgui-go/imgui"
+	"github.com/saveme712/cimgui-go/imguizmo"
 )
 
 var (

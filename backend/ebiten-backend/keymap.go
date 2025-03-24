@@ -1,7 +1,7 @@
 package ebitenbackend
 
 import (
-	"github.com/AllenDang/cimgui-go/imgui"
+	"github.com/saveme712/cimgui-go/imgui"
 	"github.com/hajimehoshi/ebiten/v2"
 	"github.com/hajimehoshi/ebiten/v2/inpututil"
 )
